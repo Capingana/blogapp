@@ -25,15 +25,8 @@ class ProductsController extends Controller
 
     public function store(StoreUpdateProductsRequest $request)
     {
-        /*
-        $request->validate([
-            'name' => 'required|min:3|max:255',
-            'description' => 'required|min:3|max:10000',
-            'photo' => 'image',
-        ]);
-        */
-        dd("Ok");
-        //
+       
+       
         $nameFile = $request->name . "." . $request->photo->extension();
         if ($request->file("photo")->isValid()) {
             dd($request->file("photo")->storeAs("public/products", $nameFile));
